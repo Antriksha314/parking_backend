@@ -1,0 +1,954 @@
+{
+	"info": {
+		"_postman_id": "f023e0e0-ae76-4516-a3b4-9e0ca172f2f2",
+		"name": "Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18760867"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@yopmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/auth/login",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"test\",\r\n    \"lastName\": \"last\",\r\n    \"email\":\"test3@yopmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/auth/register",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\": \"test\",\r\n    \"newPassword\": \"tttt\",\r\n    \"confirmPassword\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{live}}/api/auth/change-password",
+							"host": [
+								"{{live}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test3@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{live}}/api/auth/forgot-password",
+							"host": [
+								"{{live}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp\":\"170193\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{live}}/api/auth/verify-otp",
+							"host": [
+								"{{live}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/admin/users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/admin/users",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "role",
+					"item": [
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/admin/roles",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"permissions\": [\"user\" ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{live}}/api/role/admin-admin/update",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"role",
+										"admin-admin",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/role/admin2-admin",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"role",
+										"admin2-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"testww\",\r\n    \"type\":\"USER\",\r\n    \"permissions\":[\"role\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{live}}/api/role/create",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"role",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiI3ZCIsImRhdGEiOnsiZW1haWwiOiJhZG1pbkB5b3BtYWlsLmNvbSJ9LCJpYXQiOjE2ODAzNzYyNjJ9.WAw7DF9Eko2hra17awS6eDyi5CB_8W5umaQ2xydJpUc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/role/delete",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"role",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Parking",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AeW9wbWFpbC5jb20ifSwiaWF0IjoxNjg2MTY4NzgxLCJleHAiOjE2ODYxNjg4NDF9.i3yKwYfDw62fd1wseFS9kQX0NV7uhM_5FEo3PGtbF1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"SlotParking\",\r\n    \"size\": \"200 metre\",\r\n    \"capacity\": 100,\r\n    \"totalLocations\": \"2\",\r\n    \"locations\": [\r\n        {\r\n            \"propertyName\": \"West mall\",\r\n            \"address\": \"99 street\",\r\n            \"city\": \"hamipur\",\r\n            \"state\": \"hp\",\r\n            \"country\": \"india\",\r\n            \"zipCode\": \"123456\",\r\n            \"size\": \"200 mtr\",\r\n            \"floors\": [\r\n                {\r\n                    \"floorNumber\": 1,\r\n                    \"totalSections\": \"4\",\r\n                    \"totalSectionsForCar\": \"3\",\r\n                    \"totalSectionsForBike\": \"1\",\r\n                    \"sections\": [\r\n                        {\r\n                            \"number\": \"A\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"car\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"60\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"40\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"number\": \"B\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"bike\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"40\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"20\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"floorNumber\": 1,\r\n                    \"totalSections\": \"4\",\r\n                    \"totalSectionsForCar\": \"3\",\r\n                    \"totalSectionsForBike\": \"1\",\r\n                    \"sections\": [\r\n                        {\r\n                            \"number\": \"A\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"car\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"60\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"40\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"number\": \"B\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"bike\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"40\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"20\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"propertyName\": \"Elante mall\",\r\n            \"address\": \"99 street\",\r\n            \"city\": \"hamipur\",\r\n            \"state\": \"hp\",\r\n            \"country\": \"india\",\r\n            \"zipCode\": \"123456\",\r\n            \"size\": \"200 mtr\",\r\n            \"floors\": [\r\n                {\r\n                    \"floorNumber\": 1,\r\n                    \"totalSections\": \"4\",\r\n                    \"totalSectionsForCar\": \"3\",\r\n                    \"totalSectionsForBike\": \"1\",\r\n                    \"sections\": [\r\n                        {\r\n                            \"number\": \"A\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"car\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"60\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"40\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"number\": \"B\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"bike\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"40\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"20\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"floorNumber\": 1,\r\n                    \"totalSections\": \"4\",\r\n                    \"totalSectionsForCar\": \"3\",\r\n                    \"totalSectionsForBike\": \"1\",\r\n                    \"sections\": [\r\n                        {\r\n                            \"number\": \"A\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"car\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"60\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"40\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"number\": \"B\",\r\n                            \"totalSpots\": \"10\",\r\n                            \"type\": \"bike\",\r\n                            \"spots\": [\r\n                                {\r\n                                    \"size\": \"100 metre\"\r\n                                },\r\n                                {\r\n                                    \"size\": \"150 metre\"\r\n                                }\r\n                            ],\r\n                            \"price\": [\r\n                                {\r\n                                    \"price\": \"1 \",\r\n                                    \"duration\": \"40\",\r\n                                    \"type\": \"days\"\r\n                                },\r\n                                {\r\n                                    \"price\": \"20\",\r\n                                    \"duration\": \"1\",\r\n                                    \"type\": \"hours\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/parking/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AeW9wbWFpbC5jb20ifSwiaWF0IjoxNjg2MTY4NzgxLCJleHAiOjE2ODYxNjg4NDF9.i3yKwYfDw62fd1wseFS9kQX0NV7uhM_5FEo3PGtbF1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/parking/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/parking/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AeW9wbWFpbC5jb20ifSwiaWF0IjoxNjg2MTY4OTgxLCJleHAiOjE2ODYxNjkwNDF9.wUsIFc-Hi0i3xR625PstZW4GuIlGspLai5zEUOzBJyY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Slot parking\",\r\n    \"size\": \"200 meters\",\r\n    \"capacity\": \"100\",\r\n    \"status\": \"approved\",\r\n    \"parkingId\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/parking/update",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AeW9wbWFpbC5jb20ifSwiaWF0IjoxNjg2MTY4NzgxLCJleHAiOjE2ODYxNjg4NDF9.i3yKwYfDw62fd1wseFS9kQX0NV7uhM_5FEo3PGtbF1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/parking/list/all",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"list",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Floors",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalSections\": \"1\",\r\n    \"totalSectionsForCar\": \"2\",\r\n    \"totalSectionsForBike\": \"2\",\r\n    \"locationId\": \"3\",\r\n    \"sections\": [\r\n        {\r\n            \"totalSpots\": \"10\",\r\n            \"type\": \"car\",\r\n            \"spots\": [\r\n                {\r\n                    \"size\": \"100 metre\"\r\n                },\r\n                {\r\n                    \"size\": \"150 metre\"\r\n                }\r\n            ],\r\n            \"price\": [\r\n                {\r\n                    \"price\": \"1 \",\r\n                    \"duration\": \"60\",\r\n                    \"type\": \"days\"\r\n                },\r\n                {\r\n                    \"price\": \"40\",\r\n                    \"duration\": \"1\",\r\n                    \"type\": \"hours\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/floor/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"floor",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Available\",\r\n    \"floorId\": \"9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/floor/update",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"floor",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/floor/id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"floor",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/floor/9",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"floor",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AeW9wbWFpbC5jb20ifSwiaWF0IjoxNjg2MTY5MTQyLCJleHAiOjE2ODYxNjkyMDJ9.qf0Z7VFOip3NuqztiMQQM0-_-SZmjAkba8vkSbMqock",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parkingId\":\"1\",\r\n    \"propertyName\": \"West mall 2\",\r\n    \"address\": \"990 street\",\r\n    \"city\": \"hamipur 2\",\r\n    \"state\": \"hp\",\r\n    \"country\": \"india\",\r\n    \"zipCode\": \"123456\",\r\n    \"size\": \"200 mtr\",\r\n    \"floors\": [\r\n        {\r\n            \"floorNumber\": 1,\r\n            \"totalSections\": \"4\",\r\n            \"totalSectionsForCar\": \"3\",\r\n            \"totalSectionsForBike\": \"1\",\r\n            \"sections\": [\r\n                {\r\n                    \"totalSpots\": \"10\",\r\n                    \"type\": \"car\",\r\n                    \"spots\": [\r\n                        {\r\n                            \"size\": \"100 metre\"\r\n                        },\r\n                        {\r\n                            \"size\": \"150 metre\"\r\n                        }\r\n                    ],\r\n                    \"price\": [\r\n                        {\r\n                            \"price\": \"1 \",\r\n                            \"duration\": \"60\",\r\n                            \"type\": \"days\"\r\n                        },\r\n                        {\r\n                            \"price\": \"40\",\r\n                            \"duration\": \"1\",\r\n                            \"type\": \"hours\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"number\": \"B\",\r\n                    \"totalSpots\": \"10\",\r\n                    \"type\": \"bike\",\r\n                    \"spots\": [\r\n                        {\r\n                            \"size\": \"100 metre\"\r\n                        },\r\n                        {\r\n                            \"size\": \"150 metre\"\r\n                        }\r\n                    ],\r\n                    \"price\": [\r\n                        {\r\n                            \"price\": \"1 \",\r\n                            \"duration\": \"40\",\r\n                            \"type\": \"days\"\r\n                        },\r\n                        {\r\n                            \"price\": \"20\",\r\n                            \"duration\": \"1\",\r\n                            \"type\": \"hours\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"floorNumber\": 1,\r\n            \"totalSections\": \"4\",\r\n            \"totalSectionsForCar\": \"3\",\r\n            \"totalSectionsForBike\": \"1\",\r\n            \"sections\": [\r\n                {\r\n                    \"number\": \"A\",\r\n                    \"totalSpots\": \"10\",\r\n                    \"type\": \"car\",\r\n                    \"spots\": [\r\n                        {\r\n                            \"size\": \"100 metre\"\r\n                        },\r\n                        {\r\n                            \"size\": \"150 metre\"\r\n                        }\r\n                    ],\r\n                    \"price\": [\r\n                        {\r\n                            \"price\": \"1 \",\r\n                            \"duration\": \"60\",\r\n                            \"type\": \"days\"\r\n                        },\r\n                        {\r\n                            \"price\": \"40\",\r\n                            \"duration\": \"1\",\r\n                            \"type\": \"hours\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"number\": \"B\",\r\n                    \"totalSpots\": \"10\",\r\n                    \"type\": \"bike\",\r\n                    \"spots\": [\r\n                        {\r\n                            \"size\": \"100 metre\"\r\n                        },\r\n                        {\r\n                            \"size\": \"150 metre\"\r\n                        }\r\n                    ],\r\n                    \"price\": [\r\n                        {\r\n                            \"price\": \"1 \",\r\n                            \"duration\": \"40\",\r\n                            \"type\": \"days\"\r\n                        },\r\n                        {\r\n                            \"price\": \"20\",\r\n                            \"duration\": \"1\",\r\n                            \"type\": \"hours\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/location/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"location",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyName\": \"Test new floor\",\r\n    \"address\": \"Elante mall\",\r\n    \"city\": \"Chandigarh\",\r\n    \"state\": \"Punjab\",\r\n    \"zipCode\": \"16005\",\r\n    \"size\": \"500 meters\",\r\n    \"country\": \"India\",\r\n    \"locationId\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/location/update",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"location",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/location/id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"location",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/location/3",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"location",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalSpots\": \"5\",\r\n    \"type\": \"car\",\r\n    \"floorId\": \"9\",\r\n    \"size\": \"100 metre\",\r\n    \"price\": [\r\n        {\r\n            \"price\": \"1 \",\r\n            \"duration\": \"60\",\r\n            \"type\": \"days\"\r\n        },\r\n        {\r\n            \"price\": \"40\",\r\n            \"duration\": \"1\",\r\n            \"type\": \"hours\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/section/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"section",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/section/20",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"section",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/section/15",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"section",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Available\",\r\n    \"type\": \"bike\",\r\n    \"sectionId\": \"20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/section/update",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"section",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Spots",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"41\",\r\n    \"status\":\"Available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/spot/update",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"spot",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/spot/41",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"spot",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/spot/41",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"spot",
+								"41"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "live",
+			"value": "https://authentication-module-production.up.railway.app",
+			"type": "string"
+		},
+		{
+			"key": "local",
+			"value": "http://localhost:5050",
+			"type": "string"
+		}
+	]
+}
